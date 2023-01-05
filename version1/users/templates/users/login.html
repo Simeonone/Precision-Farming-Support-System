@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{%load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method = "POST">
+            {% csrf_token %} <!--without the csrf, the form won't work-->
+            <!--fieldset tag is used to group related elements in a form,
+            and a legend will be added for the form
+            side note- form-group is a bootstrap class-->
+            <fieldset class = "form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                <!--{{ form.as_p }} 'if no crispy forms, then uncomment this and delete
+                {{form}}'-->
+                {{ form|crispy }}
+                <!--form '.as_p' is an added feature is an inbuilt django module. ie in users>views.py-->
+                <!--in order to add a new field, we have to add to the form itself.
+                we do this by creating a new form that inherits from our UserCreationForm.
+                create a file that stores the new forms. hence, in users, we created forms.py-->
+            </fieldset>
+            <div class = "form-group">
+                <button class = "btn-outline-info" type="submit">Log In</button>
+                <small class="text-muted ml-2">
+                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                </small>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need an Account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
+

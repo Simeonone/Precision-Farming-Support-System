@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %}
+{%load crispy_forms_tags %}
+{% block content %}
+    <!--<h1>{{ user.username }}</h1> # this displays the username-->
+    <!--remember to create the route in the url patterns in Verion1>urls.py-->
+        <div class="content-section">
+          <div class="media">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+              <!--refer to written notes to remember {{user.profile.image.url}}-->
+            <div class="media-body">
+              <h2 class="account-heading">{{user.username}}</h2>
+              <p class="text-secondary">{{user.email}}</p>
+            </div>
+          </div>
+            <form method = "POST" enctype="multipart/form-data">
+                <!--the enctype is an encoding type that is added to the form
+                in order for form to pass image data for profile picture properly. it helps
+                to save the image in the background -->
+                {% csrf_token %} <!--without the csrf, the form won't work-->
+                <!--fieldset tag is used to group related elements in a form,
+                and a legend will be added for the form
+                side note- form-group is a bootstrap class-->
+                <fieldset class = "form-group">
+                    <legend class="border-bottom mb-4">Profile Info</legend>
+                    <!--{{ form.as_p }} 'if no crispy forms, then uncomment this and delete
+                    {{form}}'-->
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                    <!--form '.as_p' is an added feature is an inbuilt django module. ie in users>views.py-->
+                    <!--in order to add a new field, we have to add to the form itself.
+                    we do this by creating a new form that inherits from our UserCreationForm.
+                    create a file that stores the new forms. hence, in users, we created forms.py-->
+                </fieldset>
+                <div class = "form-group">
+                    <button class = "btn-outline-info" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+{% endblock content %}
+
+
+

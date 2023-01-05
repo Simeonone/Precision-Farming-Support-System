@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+<!--no froms /crispy_forms here-->
+{% block content %}
+        <h1>You are now logged out</h1>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a href="{% url 'login' %}"> Return to Log In</a>
+            </small>
+        </div>
+
+{% endblock content %}
+

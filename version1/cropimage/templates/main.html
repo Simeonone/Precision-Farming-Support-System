@@ -1,0 +1,11 @@
+{% extends 'base2.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<div id="alert-box"></div>
+<div id="image-box" class="mb-3"></div>
+    <form action="" id="image-form">
+        {% csrf_token %}
+        {{ form|crispy }}
+    </form>
+<button class="btn btn-primary mt-3 not-visible" id="confirm-btn">Confirm</button>
+{% endblock content %}

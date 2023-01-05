@@ -1,0 +1,27 @@
+<!--this is very similar to home.html except i am just going to have a single post
+the difference here is that i dont need to loop over posts, cause there's just going to be only one-->
+{% extends "blog/base.html" %}
+{% block content %}
+       <article class="media content-section">
+           <!--below code has to do with the classic small-rounded profile-pic format-->
+           <img class ="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+                <!-- CFO: ebu cheki, post.author == post class variables in models.py-->
+              <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+              <small class="text-muted">{{ object.date_posted }}</small>
+              <!--<small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>-->
+                {% if object.author == user %}
+                    <div>
+                        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                         <!--why object.id? it tells django which object we want to update-->
+                        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                    </div>
+                {% endif %}
+            </div>
+            <h2 class="article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+          </div>
+       </article>
+{% endblock content %}
+<!--when dealing with detail views, djangop expects the details of this template to be called object-->

@@ -1,0 +1,7 @@
+body {
+    background-color : lightblue;
+}
+
+.not-visible {
+    display: none;
+}

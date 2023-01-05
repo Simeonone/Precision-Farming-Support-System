@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+    {{customer}}
+    <hr>
+    {{customer.description}}
+    <!--if you want the description to be seen exactly as seen in the admin, do the following:
+    after the word 'description', add '|linebreaks'-->
+    <br>
+    <!--type the following under the <br> (just one) tag in the {{ braces to see the urls of the images:
+    customer.normal_image/precision_image, customer.normal_image/precision_image.url
+    and customer.normal_image.path-->
+<!--    <img src={{customer.precision_map.path}} height="200px">
+    <hr>
+    <img src={{customer.normal_image.path}} height="200px">-->
+<div class="row">
+  <div class="column">
+    <img src={{customer.precision_map.path}} height="200px">
+  </div>
+    <br>
+  <div class="column">
+    <img src={{customer.normal_image.path}} height="200px">
+  </div>
+</div>
+<br>
+<table style="width:100%">
+  <tr>
+    <th><h1>Color</h1></th>
+    <th><h1>Meaning</h1></th>
+    <th><h1>Prescription</h1></th>
+  </tr>
+  <tr>
+      <td style="background-color:Yellow;"><h2>Yellow</h2></td>
+    <td><h2>Dry vegetation and possibility of pest and disease invasion.</h2></td>
+      <td><h2>Apply King Quenson Dicamba 700 Wdg</h2></td>
+  </tr>
+  <tr>
+    <td style="background-color:Green;"><h2>Green</h2></td>
+    <td><h2>Healthy vegetation</h2></td>
+    <td><h2>N/A</h2></td>
+  </tr>
+
+  <tr>
+    <td style="background-color:Red;"><h2>Red</h2></td>
+      <td><h2>Healthy vegetation</h2></td>
+    <td><h2>N/A</h2></td>
+  </tr>
+
+  <tr>
+      <td style="background-color:Cyan;"><h2>Cyan</h2></td>
+    <td><h2>Healthy vegetation</h2></td>
+    <td><h2>N/A</h2></td>
+  </tr>
+
+  <tr>
+    <td style="background-color:Blue;"><h2>Blue</h2></td>
+    <td><h2>Healthy vegetation</h2></td>
+    <td><h2>N/A</h2></td>
+  </tr>
+
+  <tr>
+    <td style="background-color:Magenta;"><h2>Magenta</h2></td>
+    <td><h2>Healthy vegetation</h2></td>
+    <td><h2>N/A</h2></td>
+  </tr>
+</table>
+<h3>The products listed in the 'prescription' page can be found in our online shop</h3>
+
+</body>
+</html>
