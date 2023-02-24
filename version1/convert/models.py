@@ -38,28 +38,3 @@ class Upload(models.Model):
         self.image.save(str(self.image),ContentFile(image_png), save=False)
 
         super().save(*args, **kwargs)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
